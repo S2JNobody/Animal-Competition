@@ -1,5 +1,5 @@
 /* Attributes of the animals
-Attributes store their name and their value/score*/
+Attributes store their name and their value/score */
 
 public class Attribute {
   
