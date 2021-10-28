@@ -1,11 +1,11 @@
 //Environment. 
 
 class Desert extends Environment {
-  public int evaluateAttribute(Attribute basicAttribute) {
-    switch (basicAttribute.name) {
+  public int evaluateAttribute(AttributeValue basicAttributeValue) {
+    switch (basicAttributeValue.name) {
       case "strength":
-        return basicAttribute.value + 1;
+        return basicAttributeValue.value + 1;
     }
-    return basicAttribute.value;
+    return basicAttributeValue.value;
   }
 }

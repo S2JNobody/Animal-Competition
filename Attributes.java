@@ -1,0 +1,3 @@
+enum Attributes {
+  STRENGTH, WEIGHT, AGILITY, CLIMBING
+}
