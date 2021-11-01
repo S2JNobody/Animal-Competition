@@ -3,10 +3,10 @@
 public class AnimalCompetition {
   public static void main(String[] args) {
     System.out.println("The main method is functional.");
-    Lion argenold = new Lion(10, 10);
-    Lion evilArgenold = new Lion(12, 12);
+    Lion argenold = new Lion("argenold", 10, 10);
+    Lion evilArgenold = new Lion("evilArgenold", 12, 12);
     Desert sahara = new Desert();
     Referee john = new Referee();
-    john.compete(sahara, argenold, evilArgenold);
+    System.out.println("The winner is: " + john.compete(sahara, argenold, evilArgenold).name);
   }
 }
