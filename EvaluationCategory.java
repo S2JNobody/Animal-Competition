@@ -4,28 +4,35 @@ import java.util.ArrayList;
 
 class EvaluationCategory {
   
-  Attributes[] relevantAttributes;
+  ArrayList<AttributesContainer> relevantAttributesContainers;
   String name;
-
-  public EvaluationCategory(String name, Attributes[] relevantAttributes) {
+  
+  //Major attributes use 100% of their value, intermediate attributes only use 75%, and minor attributes only use 50%
+  public EvaluationCategory(String name, ArrayList<AttributesContainer> relevantAttributesContainers) {
     this.name = name;
-    this.relevantAttributes = relevantAttributes;
+    this.relevantAttributesContainers = relevantAttributesContainers;
   }
 
   //Takes in the environment the battle takes place in, the opposing animal, and the category that the animals are being evaluated on
   public Animal competeInCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
+    System.out.println("E Change test 3");
     //The animal with the highest score will be the winner
-    var competitor1CategoryScore = 0;
-    var competitor2CategoryScore = 0;
-    for (Attributes relelvantAttribute : this.relevantAttributes) {
+    double competitor1CategoryScore = 0.0;
+    double competitor2CategoryScore = 0.0;
+    for (AttributesContainer relevantContainer : this.relevantAttributesContainers) {
+      for (Attributes relevantAttribute : relevantContainer.containedAttributes) {
 
-      //Attributes are modified based on the environment
-      if (competitor1.attributes.containsKey(relelvantAttribute)) {
-        competitor1CategoryScore += combatEnvironment.evaluateAttribute(relelvantAttribute, competitor1.attributes.get(relelvantAttribute));
+        //Attributes are modified based on the environment
+        if (competitor1.attributes.containsKey(relevantAttribute)) {
+          competitor1CategoryScore += combatEnvironment.evaluateAttribute(relevantAttribute, competitor1.attributes.get(relevantAttribute)) * relevantContainer.weight;
+        }
+        if (competitor2.attributes.containsKey(relevantAttribute)) {
+          competitor2CategoryScore += combatEnvironment.evaluateAttribute(relevantAttribute, competitor2.attributes.get(relevantAttribute)) * relevantContainer.weight;
+        }
       }
-      if (competitor2.attributes.containsKey(relelvantAttribute)) {
-        competitor2CategoryScore += combatEnvironment.evaluateAttribute(relelvantAttribute, competitor2.attributes.get(relelvantAttribute));
-      }
+      System.out.println("Here be scores");
+      System.out.println(competitor1CategoryScore);
+      System.out.println(competitor2CategoryScore);
     }
     Animal winner = null;
     if (competitor1CategoryScore > competitor2CategoryScore) {

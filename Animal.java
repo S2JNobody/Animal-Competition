@@ -5,7 +5,6 @@ import java.util.HashMap;
 
 public abstract class Animal {
   
-  AttributeValue speed;
   String name;
 
   //Map of the names of categories to their list of relevant attributes

@@ -4,6 +4,6 @@ public abstract class Environment {
   
   //Make a map to relate the names of attributes with how they are modified according to the environment
 
-  //Takes in an attribute and returns the modified value of the Attribute to be used in evaluating the winner
-  public abstract int evaluateAttribute(Attributes AttributeType, AttributeValue basicAttributeValue);
+  //Takes in an attribute and returns its value, modified by a certain percentage to either increase it or decrease it
+  public abstract double evaluateAttribute(Attributes AttributeType, AttributeValue basicAttributeValue);
 }
