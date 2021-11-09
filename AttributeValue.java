@@ -10,4 +10,8 @@ public class AttributeValue {
     this.name = name;
     this.value = value;
   }
+
+  public void increaseValue(int increase) {
+    this.value += increase;
+  }
 }
