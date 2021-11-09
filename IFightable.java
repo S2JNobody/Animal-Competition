@@ -1,4 +1,4 @@
-//Interface for things that can fight. Currently unused, the fighting methods are in Animal.java
+//Interface for things that can fight. Currently unused.
 
 public interface IFightable {
   ;

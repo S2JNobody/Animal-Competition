@@ -1,4 +1,4 @@
-public class Eagle extends Animal {
+public class Eagle extends Animal implements IDescribable {
   public Eagle(String name, int strengthScore, int weightScore, int agilityScore,
                    int climbingScore, int warmthScore, int hungrinessScore,
                    int stealthScore, int cunningScore, int flightScore) {
