@@ -30,9 +30,6 @@ class EvaluationCategory {
           competitor2CategoryScore += combatEnvironment.evaluateAttribute(relevantAttribute, competitor2.attributes.get(relevantAttribute)) * relevantContainer.weight;
         }
       }
-      System.out.println("Here be scores");
-      System.out.println(competitor1CategoryScore);
-      System.out.println(competitor2CategoryScore);
     }
     Animal winner = null;
     if (competitor1CategoryScore > competitor2CategoryScore) {

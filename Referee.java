@@ -8,7 +8,7 @@ public class Referee {
   EvaluationCategory fightingCategory;
   EvaluationCategory movementCategory;
   EvaluationCategory survivalCategory;
-  EvaluationCategory[] competitionCategories = new EvaluationCategory[3];
+  EvaluationCategory[] competitionCategories;
 
   public Referee() {
     this.fightingCategory = new EvaluationCategory("Fighting", new ArrayList<AttributesContainer>(Arrays.asList(
@@ -25,21 +25,16 @@ public class Referee {
                                                    new AttributesContainer(new Attributes[]{Attributes.CUNNING, Attributes.CLIMBING, Attributes.STEALTH, Attributes.FLIGHT, Attributes.SWIMMING}, 0.50),
                                                    new AttributesContainer(new Attributes[]{Attributes.HUNGRINESS}, -1),
                                                    new AttributesContainer(new Attributes[]{Attributes.WEIGHT}, -0.75))));
-
-    this.competitionCategories[0] = this.fightingCategory;
-    this.competitionCategories[1] = this.movementCategory;
-    this.competitionCategories[2] = this.survivalCategory;
+    this.competitionCategories = new EvaluationCategory[]{this.fightingCategory, this.movementCategory, this.survivalCategory};
   }
 
   public Animal compete(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
-    System.out.println("R Change test 2");
+    System.out.println("R Change test 3");
     int competitor1CategoriesWon = 0;
     int competitor2CategoriesWon = 0;
     Animal categoryWinner;
-    for (EvaluationCategory competitionCategory : competitionCategories) {
-      System.out.println(competitionCategory);
+    for (EvaluationCategory competitionCategory : this.competitionCategories) {
       categoryWinner = competitionCategory.competeInCategory(combatEnvironment, competitor1, competitor2);
-      System.out.println(categoryWinner);
       if (categoryWinner == competitor1) {
         competitor1CategoriesWon += 1;
       } else if (categoryWinner == competitor2) {
