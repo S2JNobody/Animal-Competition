@@ -1,3 +1,5 @@
+//Environment subclass, used for competition evaluation
+
 public class Jungle extends Environment {
   public double evaluateAttribute(Attributes AttributeType, AttributeValue basicAttributeValue) {
     switch (AttributeType) {
@@ -19,5 +21,13 @@ public class Jungle extends Environment {
         return basicAttributeValue.value * 1.1;
     }
     return (double)basicAttributeValue.value;
+  }
+
+  public String getName() {
+    return "Jungle";
+  }
+
+  public void describeSelf() {
+    System.out.println("Jungles are dense, tall forests filled with vines and strange plants");
   }
 }

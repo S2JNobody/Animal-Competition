@@ -1,6 +1,7 @@
-//Environment. 
+//Environment subclass, used for competition evaluation
 
 class Desert extends Environment {
+
   public double evaluateAttribute(Attributes AttributeType, AttributeValue basicAttributeValue) {
     switch (AttributeType) {
       case AGILITY:
@@ -17,5 +18,13 @@ class Desert extends Environment {
         return basicAttributeValue.value * 0.5;
     }
     return (double)basicAttributeValue.value;
+  }
+
+  public String getName() {
+    return "Desert";
+  }
+
+  public void describeSelf() {
+    System.out.println("Deserts are vast, hot, open, sandy plains. There is little water or places to vertical terrain in this environment.");
   }
 }

@@ -1,14 +1,17 @@
-// Parent class for all animals
+// Parent class for all animals, containing all their common attributes
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 
 public abstract class Animal {
   
   String name;
+  //All the Attributes that are needed for all animals
+  static ArrayList<Attributes> requiredAttributes = new ArrayList<Attributes>(Arrays.asList(Attributes.STRENGTH, Attributes.WEIGHT, Attributes.AGILITY, Attributes.CLIMBING, Attributes.WARMTH, Attributes.HUNGRINESS, Attributes.STEALTH, Attributes.CUNNING));
 
-  //Map of the names of categories to their list of relevant attributes
-  public HashMap<Attributes, AttributeValue> attributes;
+  //Map of the names of categories to their corresponding AttributeValue
+  HashMap<Attributes, AttributeValue> attributes;
 
   protected Animal(String name, int strengthScore, int weightScore, int agilityScore,
                    int climbingScore, int warmthScore, int hungrinessScore,
@@ -23,5 +26,17 @@ public abstract class Animal {
     attributes.put(Attributes.HUNGRINESS, new AttributeValue("Hungriness", hungrinessScore));
     attributes.put(Attributes.STEALTH, new AttributeValue("Stealth", stealthScore));
     attributes.put(Attributes.CUNNING, new AttributeValue("Cunning", cunningScore));
+  }
+
+  protected ArrayList<Attributes> getRequiredAttributes() {
+    return requiredAttributes;
+  }
+
+  protected HashMap<Attributes, AttributeValue> getAttributes() {
+    return this.attributes;
+  }
+
+  public String getName() {
+    return this.name;
   }
 }

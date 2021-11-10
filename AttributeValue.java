@@ -1,5 +1,4 @@
-/* AttributeValues of the animals
-AttributeValues store their name and their value/score */
+// Stores an attribute's name and its value
 
 public class AttributeValue {
   
@@ -9,9 +8,5 @@ public class AttributeValue {
   public AttributeValue(String name, int value) {
     this.name = name;
     this.value = value;
-  }
-
-  public void increaseValue(int increase) {
-    this.value += increase;
   }
 }
