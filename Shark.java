@@ -7,6 +7,5 @@ public class Shark extends Animal {
           warmthScore, hungrinessScore, stealthScore, cunningScore);
     
     attributes.put(Attributes.SWIMMING, new AttributeValue("Swimming", swimmingScore));
-
   }
 }

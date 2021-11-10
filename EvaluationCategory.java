@@ -15,7 +15,6 @@ class EvaluationCategory {
 
   //Takes in the environment the battle takes place in, the opposing animal, and the category that the animals are being evaluated on
   public Animal competeInCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
-    System.out.println("E Change test 3");
     //The animal with the highest score will be the winner
     double competitor1CategoryScore = 0.0;
     double competitor2CategoryScore = 0.0;
