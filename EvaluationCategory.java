@@ -6,6 +6,8 @@ class EvaluationCategory {
   
   String name;
   String description;
+
+  //All the attributes that the category cares about, organized into Containers by percentage used (a.k.a weight)
   ArrayList<AttributesContainer> relevantAttributesContainers;
   
   public EvaluationCategory(String name, String description, ArrayList<AttributesContainer> relevantAttributesContainers) {
@@ -16,9 +18,6 @@ class EvaluationCategory {
 
   //Takes in the environment the battle takes place in, the opposing animal, and the category that the animals are being evaluated on
   public CategoryResult competeInCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
-    System.out.println(competitor1);
-    System.out.println(competitor1.getAttributes());
-    //System.out.println(competitor1.attributes.containsKey(relevantAttribute));
 
     //The animal with the highest score will be the winner
     double competitor1CategoryScore = 0.0;

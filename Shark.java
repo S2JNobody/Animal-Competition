@@ -7,18 +7,18 @@ public class Shark extends Animal implements IDescribable {
   
   static ArrayList<Attributes> requiredSharkAttributes = new ArrayList<Attributes>(Arrays.asList(Attributes.SWIMMING));
 
-  public Shark(String name, int strengthScore, int weightScore, int agilityScore,
-                   int climbingScore, int warmthScore, int hungrinessScore,
-                   int stealthScore, int cunningScore, int swimmingScore) {
-    super(name, strengthScore, weightScore, agilityScore, climbingScore,
-          warmthScore, hungrinessScore, stealthScore, cunningScore);
-    
-    attributes.put(Attributes.SWIMMING, new AttributeValue("Swimming", swimmingScore));
+  public Shark(String name) {
+    super(name);    
   }
 
-  public Shark(String name) {
-    this(name, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-  }
+  //Used to populate the HashMap
+  public void setAttributes(ArrayList<AttributeValue> values) {
+    super.setAttributes(new ArrayList(values.subList(0, values.size()-requiredSharkAttributes.size())));
+		for (int i = 0;i < requiredSharkAttributes.size();i++) {
+      //Here it can be checked that the attributes given are correct
+      attributes.put(requiredAttributes.get(i), values.get(i+values.size()-requiredSharkAttributes.size()));
+    }
+	}
 
   public void describeSelf() {
     System.out.println("SHARK");

@@ -4,21 +4,21 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 public class Eagle extends Animal implements IDescribable {
-
+  
   static ArrayList<Attributes> requiredEagleAttributes = new ArrayList<Attributes>(Arrays.asList(Attributes.FLIGHT));
 
-  public Eagle(String name, int strengthScore, int weightScore, int agilityScore,
-                   int climbingScore, int warmthScore, int hungrinessScore,
-                   int stealthScore, int cunningScore, int flightScore) {
-    super(name, strengthScore, weightScore, agilityScore, climbingScore,
-          warmthScore, hungrinessScore, stealthScore, cunningScore);
-    
-    attributes.put(Attributes.FLIGHT, new AttributeValue("Flight", flightScore));
+  public Eagle(String name) {
+    super(name);    
   }
 
-  public Eagle(String name) {
-    this(name, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-  }
+  //Used to populate the HashMap
+  public void setAttributes(ArrayList<AttributeValue> values) {
+    super.setAttributes(new ArrayList(values.subList(0, values.size()-requiredEagleAttributes.size())));
+		for (int i = 0;i < requiredEagleAttributes.size();i++) {
+      //Here it can be checked that the attributes given are correct
+      attributes.put(requiredAttributes.get(i), values.get(i+values.size()-requiredEagleAttributes.size()));
+    }
+	}
 
   public void describeSelf() {
     System.out.println("EAGLE");

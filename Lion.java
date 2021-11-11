@@ -1,24 +1,25 @@
 //Animal, one of the options that can be chosen by users
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Arrays;
 
 public class Lion extends Animal implements IDescribable {
   
   static ArrayList<Attributes> requiredLionAttributes = new ArrayList<Attributes>(Arrays.asList(Attributes.CLAW_SHARPNESS));
 
-  public Lion(String name, int strengthScore, int weightScore, int agilityScore,
-              int climbingScore, int warmthScore, int hungrinessScore,
-              int stealthScore, int cunningScore, int clawSharpnessScore) {
-    super(name, strengthScore, weightScore, agilityScore, climbingScore,
-          warmthScore, hungrinessScore, stealthScore, cunningScore);
-          
-    attributes.put(Attributes.CLAW_SHARPNESS, new AttributeValue("Claw Sharpness", clawSharpnessScore));
+  public Lion(String name) {
+    super(name);    
   }
 
-  public Lion(String name) {
-    this(name, 0, 0, 0, 0, 0, 0, 0, 0, 0);
-  }
+  //Used to populate the HashMap
+  public void setAttributes(ArrayList<AttributeValue> values) {
+    super.setAttributes(new ArrayList(values.subList(0, values.size()-requiredLionAttributes.size())));
+		for (int i = 0;i < requiredLionAttributes.size();i++) {
+      //Here it can be checked that the attributes given are correct
+      attributes.put(requiredAttributes.get(i), values.get(i+values.size()-requiredLionAttributes.size()));
+    }
+	}
 
   public void describeSelf() {
     System.out.println("LION");

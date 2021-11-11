@@ -14,13 +14,13 @@ public class AnimalCompetition {
     System.out.println(userMultiplayerChoice);
 
     if (userMultiplayerChoice.equals("c")) {
+      //Computers are currently not functional, this will not work.
       player2 = new Computer(requester, announcer);
     } else {
       player2 = new User(requester, announcer, requester.promptForStringInput("What will player 2's name be?"));
     }
 
     player1.createAnimal();
-    //Computers are currently not functional.
     player2.createAnimal();
 
     Referee ref = new Referee();
@@ -43,7 +43,7 @@ public class AnimalCompetition {
 
     int currentCategory = 0;
     EvaluationCategory currentCompetitionCategory = ref.getCategories()[currentCategory];
-    CategoryResult categoryOutcome = currentCompetitionCategory.competeInCategory(combatEnvironment, player1.champion, player2.champion);
+    CategoryResult categoryOutcome = currentCompetitionCategory.competeInCategory(combatEnvironment, player1.champion, ((User)player2).champion);
     if (categoryOutcome.getWinner() == player1.champion) {
       player1CategoriesWon += 1;
     } else if (categoryOutcome.getWinner() == player2.champion) {
@@ -58,20 +58,5 @@ public class AnimalCompetition {
 
 
 
-
-
-
-
-
-
-
-    Lion argenold = new Lion("argenold", 10, 10, 10, 10, 10, 10, 10, 10, 10);
-    Lion evilArgenold = new Lion("evilArgenold", 12, 12, 10, 9, 10, 10, 10, 10, 10);
-    Eagle bert = new Eagle("Bert", 10, 10, 10, 10, 10, 10, 10, 10, 9000);
-    Shark gerbert = new Shark("Gerbert", 15, 15, 15, 15, 15, 15, 15, 15, 50);
-    Desert sahara = new Desert();
-    Jungle amazon = new Jungle();
-    Rainfall hurricaneGertrude = new Rainfall();
-    Referee john = new Referee();
   }
 }

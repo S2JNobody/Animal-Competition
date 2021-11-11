@@ -6,7 +6,7 @@ public interface IReader {
 
   public String askForMultiplayer();
 
-  public int[] askForAttributeValues(ArrayList<Attributes> animalAttributes);
+  public ArrayList<AttributeValue> askForAttributeValues(ArrayList<Attributes> animalAttributes);
 
   public String promptForStringInput(String prompt);
 }
