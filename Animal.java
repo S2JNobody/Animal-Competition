@@ -19,7 +19,7 @@ public abstract class Animal {
   }
 
 	protected void setAttributes(ArrayList<AttributeValue> values) {
-		// for each getRequiredAttributes, 
+		for (AttributeValue value : values)
 	}
 
   protected ArrayList<Attributes> getRequiredAttributes() {

@@ -57,19 +57,19 @@ public class ConsoleReader implements IReader {
   }
   */
 
-  public HashMap<Attributes, AttributeValue> askForAttributeValues(ArrayList<Attributes> requiredAnimalAttributes) {
+  public ArrayList<AttributeValue> askForAttributeValues(ArrayList<Attributes> requiredAnimalAttributes) {
     System.out.printf("Please enter the values for the attributes of your animal. Each attribute must be given a value from 1-20, whole numbers only.");
     String userInput;
     int userInputValue;
-    HashMap<Attributes, AttributeValue> receivedAnimalAttributes = new HashMap<Attributes, AttributeValue>();
-    for (Attributes animalAttribute : requiredAnimalAttributes) {
+    ArrayList<AttributeValue> receivedAnimalAttributes = new ArrayList<AttributeValue>();
+    for (Attributes requiredAnimalAttribute : requiredAnimalAttributes) {
       System.out.printf("What would you like the value of your %s attribute to be?", attributeToString.get(animalAttribute));
 
       //The loop will keep running until they give a integer from 1-20
       while (true) {
 
         //This checks that their input was an integer
-        userInput = this.requester.nextLine();
+        userInputValue = this.requester.nextLine();
         try {
           userInputValue = Integer.parseInt(userInput);
         } catch (NumberFormatException e) {
@@ -79,7 +79,7 @@ public class ConsoleReader implements IReader {
 
         //Check to make sure the integer is between 1 and 20
         if (userInputValue >= 1 && userInputValue <= 20) {
-          receivedAnimalAttributes.put();
+          receivedAnimalAttributes.add(new AttributeValue(requiredAnimalAttribute, userInputValue));
           break;
         }
       }
