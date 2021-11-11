@@ -19,8 +19,6 @@ public class AnimalCompetition {
       player2 = new User(requester, announcer, requester.promptForStringInput("What will player 2's name be?"));
     }
 
-    //Should I tell them what environment the combat will take place in first?
-
     player1.createAnimal();
     //Computers are currently not functional.
     player2.createAnimal();

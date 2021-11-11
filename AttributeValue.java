@@ -2,10 +2,10 @@
 
 public class AttributeValue {
   
-  String name;
+  Attributes name;
   int value;
 
-  public AttributeValue(String name, int value) {
+  public AttributeValue(Attributes name, int value) {
     this.name = name;
     this.value = value;
   }
