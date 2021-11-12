@@ -1,13 +1,18 @@
-//Animal class. Currently only used to test if the parent class methods are functional
+//Animal, one of the options that can be chosen by users
 
-public class Lion extends Animal {
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Arrays;
 
-  public Lion(String name, int strengthScore, int weightScore, int agilityScore,
-              int climbingScore, int warmthScore, int hungrinessScore,
-              int stealthScore, int cunningScore, int clawSharpnessScore) {
-    super(name, strengthScore, weightScore, agilityScore, climbingScore,
-          warmthScore, hungrinessScore, stealthScore, cunningScore);
-          
-    attributes.put(Attributes.CLAW_SHARPNESS, new AttributeValue("Claw Sharpness", clawSharpnessScore));
+public class Lion extends Animal implements IDescribable {
+  
+  public Lion(String name) {
+    super(name);
+    this.requiredAttributes.add(Attributes.CLAW_SHARPNESS);
+  }
+
+  public void describeSelf() {
+    System.out.println("LION");
+    System.out.println("The lion is an animal whose sharp claws prove deadly to any who dare to face it in battle");
   }
 }

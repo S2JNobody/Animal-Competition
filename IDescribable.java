@@ -1,5 +1,9 @@
+//Allows classes information about themselves
+
 public interface IDescribable {
 
-  public abstract void discribeSelf();
+  public abstract String getName();
+  //If time make return String
+  public abstract void describeSelf();
   
 }

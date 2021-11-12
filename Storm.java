@@ -1,4 +1,6 @@
-public class Rainfall extends Environment {
+//Environment subclass, used for competition evaluation
+
+public class Storm extends Environment {
   public double evaluateAttribute(Attributes AttributeType, AttributeValue basicAttributeValue) {
     switch (AttributeType) {
       case AGILITY:
@@ -19,5 +21,13 @@ public class Rainfall extends Environment {
         return basicAttributeValue.value * 1.5;
     }
     return (double)basicAttributeValue.value;
+  }
+
+  public String getName() {
+    return "Storm";
+  }
+
+  public void describeSelf() {
+    System.out.println("The rain from the storm lowers the temperature, makes surfaces more slippery, reduces vision, and causes floods");
   }
 }

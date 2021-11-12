@@ -1,20 +1,24 @@
-// A class to hold together the attribute of a category. Will later also be able to describe itself.
+//The class used to make the categories the players compete in to get points. Can take in all the information about the players animals, and the environment to find out who wins the category. Each category instance can use each attribute differently, or not at all
 
 import java.util.ArrayList;
 
 class EvaluationCategory {
   
-  ArrayList<AttributesContainer> relevantAttributesContainers;
   String name;
+  String description;
+
+  //All the attributes that the category cares about, organized into Containers by percentage used (a.k.a weight)
+  ArrayList<AttributesContainer> relevantAttributesContainers;
   
-  //Major attributes use 100% of their value, intermediate attributes only use 75%, and minor attributes only use 50%
-  public EvaluationCategory(String name, ArrayList<AttributesContainer> relevantAttributesContainers) {
+  public EvaluationCategory(String name, String description, ArrayList<AttributesContainer> relevantAttributesContainers) {
     this.name = name;
+    this.description = description;
     this.relevantAttributesContainers = relevantAttributesContainers;
   }
 
   //Takes in the environment the battle takes place in, the opposing animal, and the category that the animals are being evaluated on
-  public Animal competeInCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
+  public CategoryResult competeInCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
+
     //The animal with the highest score will be the winner
     double competitor1CategoryScore = 0.0;
     double competitor2CategoryScore = 0.0;
@@ -22,10 +26,10 @@ class EvaluationCategory {
       for (Attributes relevantAttribute : relevantContainer.containedAttributes) {
 
         //Attributes are modified based on the environment
-        if (competitor1.attributes.containsKey(relevantAttribute)) {
+        if (competitor1.getAttributes().containsKey(relevantAttribute)) {
           competitor1CategoryScore += combatEnvironment.evaluateAttribute(relevantAttribute, competitor1.attributes.get(relevantAttribute)) * relevantContainer.weight;
         }
-        if (competitor2.attributes.containsKey(relevantAttribute)) {
+        if (competitor2.getAttributes().containsKey(relevantAttribute)) {
           competitor2CategoryScore += combatEnvironment.evaluateAttribute(relevantAttribute, competitor2.attributes.get(relevantAttribute)) * relevantContainer.weight;
         }
       }
@@ -36,6 +40,14 @@ class EvaluationCategory {
     } else if (competitor1CategoryScore < competitor2CategoryScore) {
       winner = competitor2;
     }
-    return winner;
+    return new CategoryResult(winner, competitor1CategoryScore, competitor2CategoryScore);
+  }
+
+  public String getName() {
+    return this.name;
+  }
+
+  public String getDescription() {
+    return this.description;
   }
 }

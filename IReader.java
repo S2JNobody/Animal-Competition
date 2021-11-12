@@ -1,10 +1,12 @@
+//Gives the capacity to ask the user for input of any type
+
+import java.util.ArrayList;
+
 public interface IReader {
 
   public String askForMultiplayer();
 
-  public String askForName(String name);
+  public ArrayList<AttributeValue> askForAttributeValues(ArrayList<Attributes> animalAttributes);
 
-  public String askForAnimalChoice(String chooserName);
-
-  public String askForAttributeValues();
+  public String promptForStringInput(String prompt);
 }
