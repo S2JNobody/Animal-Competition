@@ -10,15 +10,17 @@ public class AnimalCompetition {
 
     User player1 = new User(requester, announcer, requester.promptForStringInput("What will player 1's name be?"));
     Player player2;
-
-    System.out.println(userMultiplayerChoice);
-
+    
     if (userMultiplayerChoice.equals("c")) {
       //Computers are currently not functional, this will not work.
       player2 = new Computer(requester, announcer);
     } else {
       player2 = new User(requester, announcer, requester.promptForStringInput("What will player 2's name be?"));
     }
+
+    Lion ha1 = new Lion("1");
+    Lion ha2 = new Lion("2");
+    Lion ha3 = new Lion("3");
 
     player1.createAnimal();
     player2.createAnimal();
@@ -49,6 +51,11 @@ public class AnimalCompetition {
     } else if (categoryOutcome.getWinner() == player2.champion) {
       player2CategoriesWon += 1;
     }
+
+    System.out.println();
+    System.out.println("Current end of program.");
+    System.out.println();
+
     //Calculate the category
     //Show the results
 

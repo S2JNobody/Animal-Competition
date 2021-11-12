@@ -15,6 +15,7 @@ public class Printer {
   }
 
   public void displayAnimalTypesInformation() {
+    System.out.println();
     System.out.println("Here are the different animals you can choose from:");
     utilityLion.describeSelf();
     utilityEagle.describeSelf();

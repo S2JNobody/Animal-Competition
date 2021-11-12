@@ -3,14 +3,16 @@ OOP assignment. This program is a game where two people, or one person and a com
 
 
 ## Game Progression
-(The words in bold have explanations down below)<br>
+(The words in bold have explanations down below)
+
 The game progresses as follows:
-First, either player versus player or player versus computer must be chosen.
-The players will choose their names, and then begin creating their **animals**.
-The program will then select a random **environment** for the competition to take place in.
-The players animals will then face off in many **categories**, one category by one.
-Each category will have one player win, or there will be a tie. The winner gets a point.
-Whoever has the most points after the animals have faced off in every category will be the winner of the game.
+
+1. Either player versus player or player versus computer must be chosen.
+1. The players will choose their names, and then begin creating their **animals**.
+1. The program will then select a random **environment** for the competition to take place in.
+1. The players animals will then face off in many **categories**, one category by one.
+1. Each category will have one player win, or there will be a tie. The winner gets a point.
+1. Whoever has the most points after the animals have faced off in every category will be the winner of the game.
 
 
 ### Animals
