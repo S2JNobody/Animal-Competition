@@ -7,8 +7,6 @@ public class User extends Player {
   
   IReader requester;
   Printer announcer;
-  String name;
-  Animal champion;
   Lion utilityLion = new Lion("UtilityLion");
   Eagle utilityEagle = new Eagle("UtilityEagle");
   Shark utilityShark = new Shark("UtilityShark");
@@ -43,10 +41,6 @@ public class User extends Player {
       this.champion = new Shark(championName);
       this.champion.setAttributes(userChosenAttributeValues);
     }
-  }
-
-  public String getName() {
-    return this.name;
   }
 
   public void describeSelf() {

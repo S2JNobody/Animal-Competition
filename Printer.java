@@ -22,13 +22,17 @@ public class Printer {
     utilityShark.describeSelf();
   }
 
-  public void displayBasicCombatInformation(Player player1, Player player2, Environment combatEnvironment, EvaluationCategory comingCategory) {
-    //Details on the Category, Environment, and champions will be shown here. Therefore, make EvaluationCategories and Envrionments implement IDescribable
-    System.out.println(String.format("The environment in which this competition is taking place is a %s", combatEnvironment));
+  public void displayEnvironmentInformation(Player player1, Player player2, Environment combatEnvironment) {
+    System.out.println(String.format("The environment in which this competition is taking place is a %s", combatEnvironment.getName()));
     combatEnvironment.describeSelf();
     System.out.println();
-    System.out.println(String.format("The next category the animals will be competiting in is the %s category", comingCategory.getName()));
+  }
+  
+  public void displayCategoryInformation(Player player1, Player player2, EvaluationCategory comingCategory) {
+    //Details on the Category, Environment, and champions will be shown here. Therefore, make EvaluationCategories and Envrionments implement IDescribable
+    System.out.println(String.format("The next category %s and %s will be competiting in is the %s category", player1.champion.getName(), player2.champion.getName(), comingCategory.getName()));
     System.out.println(comingCategory.getDescription());
+    System.out.println("May the best animal win!");
     System.out.println();
   }
 

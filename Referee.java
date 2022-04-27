@@ -2,6 +2,7 @@
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Random;
 
 public class Referee {
 
@@ -35,11 +36,10 @@ public class Referee {
     this.competitionCategories = new EvaluationCategory[]{this.fightingCategory, this.movementCategory, this.survivalCategory};
   }
 
-  /*
-  public Result competeInNextCategory(Environment combatEnvironment, Animal competitor1, Animal competitor2) {
-    
-    return categoryOutcome;
-  }*/
+  public Environment getRandomEnvironment() {
+    Random rand = new Random();
+    return new Environment[]{new Desert(), new Storm(), new Jungle()}[rand.nextInt(3)];
+  }
 
   public EvaluationCategory[] getCategories() {
     return this.competitionCategories;
