@@ -8,7 +8,7 @@ public class AnimalCompetition {
     announcer.printIntroduction();
     String userMultiplayerChoice = requester.askForMultiplayer();
 
-    User player1 = new User(requester, announcer, requester.promptForStringInput("What will player 1's name be?"));
+    Player player1 = new User(requester, announcer, requester.promptForStringInput("What will player 1's name be?"));
     Player player2;
     
     if (userMultiplayerChoice.equals("c")) {
@@ -17,10 +17,6 @@ public class AnimalCompetition {
     } else {
       player2 = new User(requester, announcer, requester.promptForStringInput("What will player 2's name be?"));
     }
-
-    Lion ha1 = new Lion("1");
-    Lion ha2 = new Lion("2");
-    Lion ha3 = new Lion("3");
 
     player1.createAnimal();
     player2.createAnimal();
@@ -45,12 +41,16 @@ public class AnimalCompetition {
 
     int currentCategory = 0;
     EvaluationCategory currentCompetitionCategory = ref.getCategories()[currentCategory];
-    CategoryResult categoryOutcome = currentCompetitionCategory.competeInCategory(combatEnvironment, player1.champion, ((User)player2).champion);
+    
+    CategoryResult categoryOutcome = currentCompetitionCategory.competeInCategory(combatEnvironment, player1.champion, player2.champion);
     if (categoryOutcome.getWinner() == player1.champion) {
       player1CategoriesWon += 1;
     } else if (categoryOutcome.getWinner() == player2.champion) {
       player2CategoriesWon += 1;
     }
+
+    System.out.println("Player 1 won " + player1CategoriesWon + "Categories");
+    System.out.println("Player 2 won " + player2CategoriesWon + "Categories");
 
     System.out.println();
     System.out.println("Current end of program.");

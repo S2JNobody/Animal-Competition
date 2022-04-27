@@ -8,7 +8,6 @@ public class User extends Player {
   IReader requester;
   Printer announcer;
   String name;
-  Animal champion;
   Lion utilityLion = new Lion("UtilityLion");
   Eagle utilityEagle = new Eagle("UtilityEagle");
   Shark utilityShark = new Shark("UtilityShark");
